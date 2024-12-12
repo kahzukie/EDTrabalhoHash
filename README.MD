@@ -22,15 +22,109 @@
 
 # Parte 3: Modificações e Melhorias
 ## 7. Apresente o código para a função de remoção (com comentários explicativos no código)
-- No codigo.
+- Foram feitas alterações no código tanto como a adição da função para a remoção, sendo elas:
+```c
+typedef struct Node {
+  int key;
+  int value;
+  int deleted; // Campo para avisar se o nó foi removido
+  struct Node *next;
+} Node;
 
+// Busca na tabela hash
+int search(int key) {
+  int hashIndex = hashFunction(key);
+  Node *current = hashTable[hashIndex];
+  while (current) {
+    if (!current->deleted &&
+        current->key ==
+            key) { // Verifica se o nó não está marcado como deletado
+      return current->value;
+    }
+    current = current->next;
+  }
+  return -1; // Não encontrado
+
+// Função para remover o elemento
+void removeElement(int key) {
+  /* Pega as informações ta hash */
+  int hashIndex = hashFunction(key);
+  Node *current = hashTable[hashIndex];
+  Node *previous = NULL;
+
+  /* Loop para pegar o current state e deleta-lo, fazendo assim o previous key
+   * virar o next */
+  while (current) {
+    if (current->key == key) {
+
+      if (previous == NULL) {
+        /* Tratamento para quando previous for NULL, ele pega o index da hash e
+         * passa para a proxima */
+        hashTable[hashIndex] = current->next;
+      } else {
+        /* Caso nao seja null ele pega o valor da hash e seta como current */
+        previous->next = current->next;
+      }
+      /* libera a memoria de current (ou seja deleta ele da lista) */
+      free(current);
+      return;
+    }
+    previous = current;
+    current = current->next;
+  }
+  /* Printa elemento não encontrado caso não o ache */
+  printf("Elemento não encontrado.\n");
+}
+
+int main() {
+  int i;
+
+  // Inicializando todos os elementos da tabela hash com NULL
+  for (i = 0; i < TABLE_SIZE; i++) {
+    hashTable[i] = NULL;
+  }
+  // insert(key, value)
+  insert(1, 10);
+  insert(11, 20);
+  insert(21, 30);
+  insert(2, 15);
+
+  printf("Tabela Hash:\n");
+  displayTable();
+
+  int key = 11;
+  int value = search(key);
+  if (value != -1) {
+    printf("Valor encontrado para a chave %d: %d\n", key, value);
+  } else {
+    printf("Chave %d nao encontrada.\n", key);
+  }
+
+  // Inserindo a função para remover o elemento de chave 11
+  removeElement(11);
+  // Print para diferenciar a tabela de inserção com a de remoção
+  printf("Tabela apos remocao:\n");
+  // Mostrando a tabela nova
+  displayTable();
+  return 0;
+}
+```
 ## 8. Discuta a importância e as dificuldades envolvidas para realizar o Redimensionamento Dinâmico de Tabela Hash.
 - É importante pois quando a tabela fica muito cheia, colisões se tornam algo mais frequentes, fazendo o desempenho ficar pior nas operação de inserção, busca e remoção.  
 - A dificuldade é pois temos que implementar um monitoramento para o fator de carga, onde caso o ultrapasse irá criar uma nova tabela que irá alocar o tamanho novo desejado, para então reinserir os dados da tabela antiga na nova e só então liberar a memória da tabela antiga.
 
 # Parte 4: Experimente Diferentes Funções Hash
 ## 9. Apresente o código para a função hashFunction implementando o Método da Multiplicação (com comentários explicativos no código).
-- No código.
+- Foi implementada nova função hashFunction e comentada a função hashFunction anterior:
+```c
+// Função hash simples (Método da Divisão)
+/* int hashFunction(int key) { return key % TABLE_SIZE; } */
+
+// Função hash (Método da Multiplicação)
+/* Usamos fmod para pegar o resto como recomendado no exercicio, e multiplicamos
+ * pelo TABLE_SIZE para pegar o valor da hash */
+int hashFunction(int key) { return TABLE_SIZE * fmod(key, 0.618033); }
+```
 
 ## 10. Compare a distribuição de chaves proporcionada pelo Método da Multiplicação com a Distribuição obtida pelo método da Divisão.
 - Foi visualizado menos uma tabela com menos colisões, o que melhora o desempenho da tabela hash.
