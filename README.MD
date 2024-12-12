@@ -143,3 +143,10 @@ int hashFunction(int key) { return TABLE_SIZE * fmod(key, 0.618033); }
 - Tabelas hash podem consumir quantidades significativas de memória, principalmente quando há um número elevado de elementos.  
 - É possível fazer o gerenciamento de objetos e entidades em um jogo com tabela hash.  
 - Então para concluir, vemos que tabelas hash são estruturas de dados com uma ampla gama de aplicações, e que com este trabalho trabalhamos com os principais conceitos relacionados a elas, como também as dificuldades encontradas ao implementar e suas possiveis soluções para otimizar desempenho.
+
+### Welington
+
+- A Tabela Hash tem um nível de dificuldade mais elevado na implementação. Seu nível de complexidade ao usar um par de valores que compõem a chave/valor.
+- A maior dificuldade foi a compreensão das colisões. Esse problema de colisões e como tratar as colisões gera bastante dúvida. Principalmente quando acontecem as colisões.
+- Entendo que os limites da tabela hash podem compreender problemas como as chaves indo parar em uma mesma posição da tabela.
+- A várias aplicações para tabela hash, uma delas é sistema de cache que permite o armazenamento e a recuperação rápida de informações que foram acessadas recentemente.
