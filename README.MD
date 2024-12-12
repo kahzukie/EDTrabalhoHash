@@ -43,3 +43,8 @@
 
 # Parte 5: Conclusões
 ## 12. Quais os principais aprendizados que foram alcançados com a realização deste trabalho sobre Tabelas Hash? Quais as dificuldades? Quais as limitações? Quais as possibilidades de aplicação de Tabelas? Elabore uma conclusão sobre o trabalho realizado, considerando esses e outros aspectos. 
+### Igor:
+- Os principais aprendizados que tive deste trabalho, foram que uma hash é muito mais complexa do que "Números aleatório" com suas colisões e fator de carga, tanto como diferentes métodos para a criação da hash, e a importância de escolher diferentes hash, pois afetam diretamente o desempenho da tabela.  
+- Foi bem trabalhoso entender como implementar um redimensionamento dinâmico, mesmo sendo muito importante, pois uma tabela pode ultrapassar o seu tamanho tendo assim que aumenta-la para suprir sua nescessidade.  
+- Tabelas hash podem consumir quantidades significativas de memória, principalmente quando há um número elevado de elementos.  
+- É possível fazer o gerenciamento de objetos e entidades em um jogo com tabela hash.  
