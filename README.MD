@@ -48,3 +48,4 @@
 - Foi bem trabalhoso entender como implementar um redimensionamento dinâmico, mesmo sendo muito importante, pois uma tabela pode ultrapassar o seu tamanho tendo assim que aumenta-la para suprir sua nescessidade.  
 - Tabelas hash podem consumir quantidades significativas de memória, principalmente quando há um número elevado de elementos.  
 - É possível fazer o gerenciamento de objetos e entidades em um jogo com tabela hash.  
+- Então para concluir, vemos que tabelas hash são estruturas de dados com uma ampla gama de aplicações, e que com este trabalho trabalhamos com os principais conceitos relacionados a elas, como também as dificuldades encontradas ao implementar e suas possiveis soluções para otimizar desempenho.
