@@ -1,4 +1,16 @@
+# Parte 1: Exploração Teórica e Comparativa
+## 1. Explique a importância do espalhamento uniforme em funções hash.
+- A importância do espalhamento uniforme seria para não pesar computacionalmente a tabela hash
+
+## 2. Descreva uma situação em que o fator de carga alto pode comprometer o desempenho.
+- Ocorreria um aumento de colisão, onde poderia aumentar o tempo de execução nas operações.  
+- Poderia gerar uma lista linear fazendo com que as vantagens de uma tabela hash seja anulada.  
+- O tempo de busca seria aumentado pois teria que passar por mais posições até encontrar o elemento desejado ou um local livre.
+
 # Parte 2: Código Base e Análise
+## 3. Analise e responda se o código base apresenta problemas de colisão.
+- Sim, ocorre colisões pois os restos dos inserts de chave 1, 11, 21 serão 0, o que tos leva a mesma chave na tabela hash
+
 ## 4. Explique como o encadeamento é usado para resolver colisões no programa
 - O encadeamento é usado pois caso não fosse haveria colisões nas chaves 1 pois o elemento é inserido no indice em que mais de um elemento está sendo inserido.
 
